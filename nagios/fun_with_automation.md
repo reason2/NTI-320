@@ -1,4 +1,4 @@
-## Automating new machines in nagios
+## Automating the addition of new machines in nagios
 
 https://cloud.google.com/sdk/gcloud/reference/compute/copy-files
 Allows you to copy files to any remote instance, meaning you can configure new machines on your laptop/local machine and scp those 
