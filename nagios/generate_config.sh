@@ -26,6 +26,7 @@ define service{
         service_description             load
         check_command                   check_nrpe!check_load
 }
+
 define service{
         use                             generic-service         ; Name of service template to
  use
@@ -34,6 +35,29 @@ define service{
         check_command                   check_nrpe!check_users
 }
 
+define service{
+        use                             generic-service         ; Name of service template to
+ use
+        host_name                       $host
+        service_description             disk
+        check_command                   check_nrpe!check_disk
+}
+
+define service{
+        use                             generic-service         ; Name of service template to
+ use
+        host_name                       $host
+        service_description             totalprocs
+        check_command                   check_nrpe!check_total_procs
+}
+
+define service{
+        use                             generic-service         ; Name of service template to
+ use
+        host_name                       $host
+        service_description             memory
+        check_command                   check_nrpe!check_mem
+}
 
 ">> /ect/nagios/conf.d/"$host".cfg
 
