@@ -32,6 +32,10 @@ sed -i 's/^/#/' /etc/httpd/conf.d/welcome.conf                                  
 systemctl restart httpd
 
 
+# At this point you should be able to see your repository structure when you hit the website
+
+# Last step is to configure your new yum repository on a client:
+
 
 
 
