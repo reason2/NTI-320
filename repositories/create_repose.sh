@@ -9,9 +9,9 @@ cp helloworld-0.1-1.el7.centos.x86_64.rpm /repos/centos/7/extras/x86_64/Packages
 createrepo --update /repos/centos/7/extras/x86_64/Packages/                        # Update after every change
 
 
-# Now install apache so you can serve your repo over the web
 
-yum -y install httpd
+
+yum -y install httpd                                                              # Now install apache so you can serve your repo over the web
 
 setenforce 0
 
