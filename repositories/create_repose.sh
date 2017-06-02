@@ -20,7 +20,7 @@ systemctl enable httpd
 
 systemctl start httpd
 
-ln -s /var/www/html/centos /repos/centos                                          # Link your repos in
+ln -s  /repos/centos /var/www/html/centos                                         # Link your repos in
 
 cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.bak                      # Make a copy of our origonal httpd.conf
 
