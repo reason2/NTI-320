@@ -25,7 +25,7 @@ cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.bak                    
 
 sed -i '144i     Options All' /etc/httpd/conf/httpd.conf                          # Configure apache
 sed -i '145i    # Disable directory index so that it will index our repos' /etc/httpd/conf/httpd.conf
-sed -i '146i     DirectoryIndex disabled' FILE 
+sed -i '146i     DirectoryIndex disabled' /etc/httpd/conf/httpd.conf
 
 sed -i 's/^/#/' /etc/httpd/conf.d/welcome.conf                                    # Disables the defualt welcome page in the recommended way
 
