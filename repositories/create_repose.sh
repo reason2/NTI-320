@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 yum -y install createrepo                                                          # Install createrepo
@@ -28,6 +29,8 @@ sed -i '145i    # Disable directory index so that it will index our repos' /etc/
 sed -i '146i     DirectoryIndex disabled' /etc/httpd/conf/httpd.conf
 
 sed -i 's/^/#/' /etc/httpd/conf.d/welcome.conf                                    # Disables the defualt welcome page in the recommended way
+
+chown -R apache:apache /repos/
 
 systemctl restart httpd
 
