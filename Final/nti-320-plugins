@@ -16,24 +16,23 @@ Requires:	nrpe, nagios-plugins-all
 written by the NTI-320 class of 2017 with some additional fixes for our gcloud/centos 7 
 environment.
 
-%prep					
-			
+%prep								
 
 %setup -q	
 		
 %build					
-%configure			
-make %{?_smp_mflags}	
-cp /root/rpmbuild/SOURCES/helloworld.sh /root/rpmbuild/BUILD/helloworld-0.1/
 
 %install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}/%{_bindir}
-mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
 
-make install DESTDIR=%{buildroot}
-install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
-cp /root/rpmbuild/SOURCES/helloworld.sh %{buildroot}/%{_sysconfdir}/profile.d/
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/lib64/nagios/plugins/
+mkdir -p %{buildroot}/etc/nrpe.d/
+
+install -m 0755 check* %{buildroot}/usr/lib64/nagios/plugins/
+install -m 0744 nti320.cfg %{buildroot}/etc/nrpe.d/
+
+
+
 %clean
 
 %files					
