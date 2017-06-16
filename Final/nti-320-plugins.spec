@@ -6,7 +6,7 @@ Summary: 	NTI-320 NRPE plugins
 Group:		NTI-320
 License:	GPL2+
 URL:		https://github.com/nic-instruction/NTI-320
-Source0:	https://github.com/nic-instruction/nrpe-plugins
+Source0:	https://github.com/nic-instruction/nti-320-plugins-0.1.tar.gz
 
 BuildRequires:	gcc, python >= 1.3
 Requires:	nrpe, nagios-plugins-all
@@ -21,6 +21,7 @@ environment.
 %setup -q	
 		
 %build					
+%define _unpackaged_files_terminate_build 0
 
 %install
 
