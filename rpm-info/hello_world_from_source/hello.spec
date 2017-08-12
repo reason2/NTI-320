@@ -1,7 +1,7 @@
 Name:		helloworld
 Version: 	0.1
 Release:	1%{?dist}
-Summary: 	A program that prints 'Hello Cruel World'
+Summary: 	A program that prints 'Hello World'
 
 Group:		NTI-320	
 License:	GPL2+
