@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [[  $# -eq 0 ]]; then                        # If no arguments are given to the script
-   echo "Usage:                             # then print a usage statement and exit
-   generate_config.sh hostname ip
+if [[  $# -eq 0 ]]; then                    # If no arguments are given to the script
+   echo "Usage:"                            # then print a usage statement and exit
+   echo "generate_config.sh hostname ip
    "
    exit 0;
 fi
