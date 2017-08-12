@@ -15,7 +15,7 @@ echo "
 define host {
     use         linux-server        ; Inherit default values from a template
     host_name   $host               ; The name we're giving to this host
-    alias       web server          ; A longer name associated with the host
+    alias       $host server        ; A longer name associated with the host
     address     $ip                 ; IP address of the host
 }
 # Service Definition
