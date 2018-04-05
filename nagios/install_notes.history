@@ -9,6 +9,8 @@ min nagios install
        systemctl enable httpd
        systemctl start httpd
        yum install nrpe
+       yum enable nrpe
+       yum start nrpe
        yum install nagios-plugins-all
        htpasswd -c /etc/nagios/passwd nagiosadmin
 
