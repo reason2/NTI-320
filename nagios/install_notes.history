@@ -11,8 +11,8 @@ min nagios install
        yum install nrpe
        yum enable nrpe
        yum start nrpe
-       yum install nagios-plugins-all
-       yum install nagios-plugins-nrpe
+       systemctl install nagios-plugins-all
+       systemctl install nagios-plugins-nrpe
        htpasswd -c /etc/nagios/passwd nagiosadmin
 
 Further configuration:
