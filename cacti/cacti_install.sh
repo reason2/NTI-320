@@ -3,7 +3,7 @@ yum install mariadb-server         # The mysql/mariadb client installs with the 
                                    # If you want to have multiple cacti nodes, considder using the client and connecting
                                    # to another server
                                    
-yum install php-process php-gd php
+yum install php-process php-gd php mod_php
                                    
                     
 systemctl enable mariadb           # Enable db, apache and snmp (not cacti yet)
