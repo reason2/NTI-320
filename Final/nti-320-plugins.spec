@@ -9,7 +9,7 @@ URL:		https://github.com/nic-instruction/NTI-320
 Source0:	https://github.com/nic-instruction/nti-320-plugins-0.1.tar.gz
 
 BuildRequires:	gcc, python >= 1.3
-Requires:	nrpe, nagios-plugins-all
+Requires:	nrpe, nagios-plugins-all, bash, net-snmp, net-snmp-utils
 
 %description
 'nti-320-plugins' provides custom NRPE plugins
