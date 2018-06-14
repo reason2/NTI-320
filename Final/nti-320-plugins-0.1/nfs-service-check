@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+#Creates variable to be tested. Checks for nfs-server.
+nfsstatus=$( systemctl status nfs-server | grep "active (exited)" )
+
+#Compares variable with condition; if it's empty, it'll return critical status.
+if [ ! -z "$nfsstatus" ]; then
+    echo "STATUS:OKAY"
+    exit 0;
+    
+  elif [ -z "$nfsstatus" ]; then
+    echo "STATUS:CRITICAL"
+    exit 2;
+    
+fi

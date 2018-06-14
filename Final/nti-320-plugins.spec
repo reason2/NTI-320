@@ -29,8 +29,7 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/lib64/nagios/plugins/
 mkdir -p %{buildroot}/etc/nrpe.d/
 
-install -m 0755 check* %{buildroot}/usr/lib64/nagios/plugins/
-install -m 0755 nti-sanity.sh %{buildroot}/usr/lib64/nagios/plugins/
+install -m 0755 * %{buildroot}/usr/lib64/nagios/plugins/
 
 install -m 0744 nti320.cfg %{buildroot}/etc/nrpe.d/
 
@@ -38,13 +37,11 @@ install -m 0744 nti320.cfg %{buildroot}/etc/nrpe.d/
 
 %files					
 %defattr(-,root,root)	
-/usr/lib64/nagios/plugins/nti-sanity.sh
-/usr/lib64/nagios/plugins/check_rsyslog_message_appear.sh
-/usr/lib64/nagios/plugins/check_django_connection
-/usr/lib64/nagios/plugins/check_httpd_django
-/usr/lib64/nagios/plugins/check_process.sh
-/usr/lib64/nagios/plugins/check_python
-/usr/lib64/nagios/plugins/check_httpd_django
+/usr/lib64/nagios/plugins/nfs-service-check
+/usr/lib64/nagios/plugins/cody_gagnon_check_file_exists.sh
+/usr/lib64/nagios/plugins/cody_gagnon_check_active_nfs_connections.sh
+/usr/lib64/nagios/plugins/check_nfs_dirs.sh
+/usr/lib64/nagios/plugins/apachetestfromjoe
 
 
 %config
@@ -54,9 +51,21 @@ install -m 0744 nti320.cfg %{buildroot}/etc/nrpe.d/
 
 %post
 
-sed -i 's,/dev/hda1,/dev/sda1,'  /etc/nagios/nrpe.cfg 
+nagiosip=""
+rsyslogip=""
+
+touch /thisworked
+systemctl enable snmpd
+systemctl start snmpd
+sed -i 's,/dev/hda1,/dev/sda1,'  /etc/nagios/nrpe.cfg
+sed -i "s/allowed_hosts=127.0.0.1/allowed_hosts=127.0.0.1, $nagiosip/g" /etc/nagios/nrpe.cfg
+echo "*.info;mail.none;authpriv.none;cron.none   @$rsyslogip" >> /etc/rsyslog.conf
+
+systemctl enable nrpe
+systemctl restart nrpe
+systemctl restart rsyslog
 
 %postun
 rm /etc/nrpe.d/nti320.cfg
-
+rm /thisworked
 %changelog				# changes you (and others) have made and why
