@@ -14,6 +14,7 @@ min nagios install
        systemctl install nagios-plugins-all
        systemctl install nagios-plugins-nrpe
        htpasswd -c /etc/nagios/passwd nagiosadmin
+       chmod 666 /var/log/nagios/nagios.log 
 
 Further configuration:
 https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-publicservices.html (Links to an external site.)
