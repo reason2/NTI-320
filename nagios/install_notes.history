@@ -9,10 +9,10 @@ min nagios install
        systemctl enable httpd
        systemctl start httpd
        yum install nrpe
-       yum enable nrpe
-       yum start nrpe
-       systemctl install nagios-plugins-all
-       systemctl install nagios-plugins-nrpe
+       systemctl enable nrpe
+       systemctl start nrpe
+       yum install nagios-plugins-all
+       yum install nagios-plugins-nrpe
        htpasswd -c /etc/nagios/passwd nagiosadmin
        chmod 666 /var/log/nagios/nagios.log 
 
