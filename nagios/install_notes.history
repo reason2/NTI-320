@@ -15,6 +15,7 @@ min nagios install
        yum install nagios-plugins-nrpe
        htpasswd -c /etc/nagios/passwd nagiosadmin
        chmod 666 /var/log/nagios/nagios.log 
+       systemctl restart nagios
 
 Further configuration:
 https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-publicservices.html (Links to an external site.)
