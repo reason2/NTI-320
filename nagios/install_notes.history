@@ -1,21 +1,21 @@
 min nagios install 
 (this is for the first week of configuration.  We will be compiling from source later in the quarter)
 
-       yum install nagios
-       systemctl enable nagios
-       systemctl start nagios
-       setenforce 0
-       yum install httpd
-       systemctl enable httpd
-       systemctl start httpd
-       yum install nrpe
-       systemctl enable nrpe
-       systemctl start nrpe
-       yum install nagios-plugins-all
-       yum install nagios-plugins-nrpe
-       htpasswd -c /etc/nagios/passwd nagiosadmin
-       chmod 666 /var/log/nagios/nagios.log 
-       systemctl restart nagios
+yum install nagios
+systemctl enable nagios
+systemctl start nagios
+setenforce 0
+yum install httpd
+systemctl enable httpd
+systemctl start httpd
+yum install nrpe
+systemctl enable nrpe
+systemctl start nrpe
+yum install nagios-plugins-all
+yum install nagios-plugins-nrpe
+htpasswd -b -c /etc/nagios/passwd nagiosadmin nagiosadmin
+chmod 666 /var/log/nagios/nagios.log 
+systemctl restart nagios
 echo "define command{
                                 command_name check_nrpe
                                 command_line /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
