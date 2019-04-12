@@ -15,12 +15,13 @@ yum install nagios-plugins-all
 yum install nagios-plugins-nrpe
 htpasswd -b -c /etc/nagios/passwd nagiosadmin nagiosadmin
 chmod 666 /var/log/nagios/nagios.log 
-systemctl restart nagios
+sed -i '51 s/^#//' nagios.cfg
 echo "define command{
                                 command_name check_nrpe
                                 command_line /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
                                 }" >> /etc/nagios/objects/commands.cfg
-                                
+systemctl restart nagios
+
 Further configuration:
 https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-publicservices.html (Links to an external site.)
 
