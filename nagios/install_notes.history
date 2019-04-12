@@ -15,6 +15,7 @@ yum install nagios-plugins-all
 yum install nagios-plugins-nrpe
 htpasswd -b -c /etc/nagios/passwd nagiosadmin nagiosadmin
 chmod 666 /var/log/nagios/nagios.log 
+mkdir /etc/nagios/servers
 sed -i '51 s/^#//' /etc/nagios/nagios.cfg  # Courtesey of Chuan
 echo "define command{
                                 command_name check_nrpe
