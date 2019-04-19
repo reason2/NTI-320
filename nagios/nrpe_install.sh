@@ -13,4 +13,4 @@ sed -i "s,command[check_hda1]=/usr/lib64/nagios/plugins/check_disk -w 20% -c 10%
 systemctl restart nrpe
 
 # Troubleshooting
-# From nagios server: check_nrpe -H 10.0.0.3 -c check_load From NRPE server execute the command in libexec /usr/lib64/nagios/plugins/
+# From nagios server: /usr/lib64/nagios/plugins/check_nrpe -H 10.0.0.3 -c check_load From NRPE server execute the command in libexec /usr/lib64/nagios/plugins/
