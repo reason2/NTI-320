@@ -15,13 +15,7 @@ gpgcheck=0
                                                                     # it shows up without error
 yum repolist
 
-isokay=`yum search "hello world" | grep "Matched: hello world"`
-
-if [ -z "$isokay" ]; then
-   echo "There's somthing wrong with your repo... check yum repolist to see if it shows up then try installing a package"
-else
-   echo "All is well and we found your test package: $isokay"   
-fi
+yum search helloworld
                                                      
 
 
