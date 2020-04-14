@@ -50,7 +50,7 @@ define host{
 # Define a service to ping the example-a machine
 define service{
         use                             generic-service         ; Name of service template to use
-        host_name                       cacti-a
+        host_name                       example-a
         service_description             PING
         check_command                   check_ping!100.0,20%!500.0,60%
         }
@@ -58,7 +58,7 @@ define service{
 # Disable notifications for this service by default, as not all users may have HTTP enabled.
 define service{
         use                             generic-service         ; Name of service template to use
-        host_name                       cacti-a
+        host_name                       example-a
         service_description             HTTP
         check_command                   check_http
         notifications_enabled           0
@@ -68,7 +68,7 @@ define service{
 # < 10% free space on partition.
 define service{
         use                             generic-service         ; Name of service template to use
-        host_name                       cacti-a
+        host_name                       example-a
         service_description             Root Partition
         check_command			              check_nrpe!check_disk!20%!10%!/
         }
@@ -77,7 +77,7 @@ define service{
 # if > 50 users.
 define service{
         use                             generic-service         ; Name of service template to use
-        host_name                       cacti-a
+        host_name                       example-a
         service_description             Current Users
         check_command			              check_nrpe!check_users!20!50
         }
@@ -86,14 +86,14 @@ define service{
 # > 400 processes.
 define service{
         use                             generic-service         ; Name of service template to use
-        host_name                       cacti-a
+        host_name                       example-a
         service_description             Total Processes
         check_command			              check_nrpe!check_procs!250!400!RSZDT
         }
 # Define a service to check the load on the example-a machine.
 define service{
         use                             generic-service         ; Name of service template to use
-        host_name                       cacti-a
+        host_name                       example-a
         service_description             Current Load
         check_command			              check_nrpe!check_load!5.0,4.0,3.0!10.0,6.0,4.0
         }
@@ -101,7 +101,7 @@ define service{
 # Disable notifications for this service by default, as not all users may have SSH enabled.
 define service{
         use                             generic-service         ; Name of service template to use
-        host_name                       cacti-a
+        host_name                       example-a
         service_description             SSH
         check_command			              check_ssh
         notifications_enabled		        0
