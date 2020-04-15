@@ -25,6 +25,11 @@ sed -i 's,dont_blame_nrpe=0,dont_blame_nrpe=1,g' /etc/nagios/nrpe.cfg
 mkdir /etc/nagios/servers
 # create a directory for our server configuration and enable it in the config file
 sed -i 's,#cfg_dir=/etc/nagios/servers,cfg_dir=/etc/nagios/servers,g' /etc/nagios/nagios.cfg
+echo 'define command{
+                                command_name check_nrpe
+                                command_line /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+                                }" >> /etc/nagios/objects/commands.cfg'
+
 systemctl restart nagios
 
 cd /etc/nagios/servers
@@ -107,4 +112,11 @@ define service{
         notifications_enabled		        0
         }
 ' > example-a.cfg
+
+Further configuration:
+https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-publicservices.html (Links to an external site.)
+
+
+verify
+/usr/sbin/nagios -v /etc/nagios/nagios.cfg
 
