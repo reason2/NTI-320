@@ -5,7 +5,7 @@ yum install -y nagios-nrpe-server nagios-plugins nrpe nagios-plugins-load nagios
 # Use sed statments to uncomment NRPE config and add the appropiate flags
 # add in command[check_mem]=/usr/lib64/nagios/plugins/check_mem.sh
 # Install custom mem monitor
-wget -O /usr/lib64/nagios/plugins/check_mem.sh https://raw.githubusercontent.com/nic-instruction/NTI-320/master/nagios/check_mem.sh
+wget -O /usr/lib64/nagios/plugins/check_mem.sh https://raw.githubusercontent.com/nic-instruction/hello-nti-320/master/check_mem.sh
 chmod +x /usr/lib64/nagios/plugins/check_mem.sh
 systemctl enable nrpe
 systemctl start nrpe
