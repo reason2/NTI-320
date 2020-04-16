@@ -5,6 +5,7 @@ systemctl enable nagios
 systemctl start nagios
 
 setenforce 0                       # Turn off SElinux, so it doesn't trip us up
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config  # Disable it perminately
 
 systemctl enable httpd             # Enable and start apache
 systemctl start httpd
