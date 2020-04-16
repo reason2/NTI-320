@@ -29,7 +29,7 @@ sed -i 's,#cfg_dir=/etc/nagios/servers,cfg_dir=/etc/nagios/servers,g' /etc/nagio
 echo 'define command{
                                 command_name check_nrpe
                                 command_line /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
-                                }" >> /etc/nagios/objects/commands.cfg'
+                                }' >> /etc/nagios/objects/commands.cfg
 
 systemctl restart nagios
 
