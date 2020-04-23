@@ -21,10 +21,10 @@ mysqladmin -u root password P@ssw0rd1                               # Set your m
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -pP@ssw0rd1 mysql    # Transfer your local timezone info to mysql
 
 echo "create database cacti;
-GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'P@ssw0rd1';  # Set this to somthing better than 'cactipass'
+GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'P@ssw0rd1';  
 FLUSH privileges;
 
-GRANT SELECT ON mysql.time_zone_name TO cacti@localhost;            # Added to fix a timezone issue
+GRANT SELECT ON mysql.time_zone_name TO cacti@localhost;            
 flush privileges;" > stuff.sql
 
 
