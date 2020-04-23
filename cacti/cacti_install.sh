@@ -60,9 +60,12 @@ sed -i 's/Allow from localhost/Allow from all all/' /etc/httpd/conf.d/cacti.conf
 sed -i "s/\$database_username = 'cactiuser';/\$database_username = 'cacti';/" /etc/cacti/db.php
 sed -i "s/\$database_password = 'cactiuser';/\$database_password = 'P@ssw0rd1';/" /etc/cacti/db.php
 
+
 # Fix the php.ini script
 cp /etc/php.ini /etc/php.ini.orig
 sed -i 's/;date.timezone =/date.timezone = America\/Regina/' /etc/php.ini
+sed -i '1379i\[session]' /etc/php.ini
+sed -i 's/session.auto_start = 0/session.auto_start = On/g' /etc/php.ini
 
 systemctl restart httpd.service
 
