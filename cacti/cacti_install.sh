@@ -1,3 +1,19 @@
+#!/bin/bash
+
+# start by installing the repos for mariadb 10 (required by cacti)
+
+echo "# MariaDB 10.1 CentOS repository list - created 2016-01-18 09:58 UTC
+# http://mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.1/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1" > /etc/yum.repos.d/MariaDB10.repo
+
+yum clean all 
+
+yum -y install MariaDB-server MariaDB-client 
+
 yum -y install cacti               # Installes a number of packages, including mariadb, httpd, php and so on
 yum -y install mariadb-server         # The mysql/mariadb client installs with the cacti stack but not the server
                                    # If you want to have multiple cacti nodes, considder using the client and connecting
