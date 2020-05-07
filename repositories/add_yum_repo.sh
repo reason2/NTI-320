@@ -15,7 +15,7 @@ gpgcheck=0
                                                                     # it shows up without error
 yum repolist
 
-yum search helloworld
+yum search hello-world
                                                      
 
 
